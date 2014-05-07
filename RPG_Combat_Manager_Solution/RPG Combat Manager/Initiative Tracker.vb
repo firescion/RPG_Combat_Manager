@@ -39,14 +39,14 @@
         Dim intInitiativeRoll(7) As Integer
 
         'assigns values to Character's public properties
-        Player1.Name = txtPlayer1.ToString
-        Player2.Name = txtPlayer2.ToString
-        Player3.Name = txtPlayer3.ToString
-        Player4.Name = txtPlayer4.ToString
-        Monster1.Name = txtMonster1.ToString
-        Monster2.Name = txtMonster2.ToString
-        Monster3.Name = txtMonster3.ToString
-        Monster4.Name = txtMonster4.ToString
+        Player1.Name = txtPlayer1.Text
+        Player2.Name = txtPlayer2.Text
+        Player3.Name = txtPlayer3.Text
+        Player4.Name = txtPlayer4.Text
+        Monster1.Name = txtMonster1.Text
+        Monster2.Name = txtMonster2.Text
+        Monster3.Name = txtMonster3.Text
+        Monster4.Name = txtMonster4.Text
 
         Integer.TryParse(txtPlayer1Initiative.Text, Player1.InitiativeMod)
         Integer.TryParse(txtPlayer2Initiative.Text, Player2.InitiativeMod)
