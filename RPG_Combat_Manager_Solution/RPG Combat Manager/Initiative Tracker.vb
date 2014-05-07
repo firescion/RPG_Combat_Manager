@@ -1,9 +1,6 @@
 ﻿Public Class frmInitiativeTracker
 
-    Private Sub btnExit_Click(sender As Object, e As EventArgs)
-        Me.Close()
-        frmLoad.Close()
-    End Sub
+
 
     Private Sub btnSave_Click(sender As Object, e As EventArgs) Handles btnSave.Click
         'saves player name and initiative modifier to sequential access file
@@ -11,7 +8,7 @@
         Dim outFile As IO.StreamWriter
 
         'open the text file to modify it
-        outFile = IO.File.AppendText("players.txt")
+        outFile = IO.File.CreateText("players.txt")
 
         'Write the player info to the file with a comma separating the name and initiative, new line
 
@@ -48,8 +45,7 @@
 
     End Sub
 
-    
-    Private Sub Button1_Click(sender As Object, e As EventArgs) Handles btnRollInitiative.Click
+    Private Sub btnRollInitiative_Click(sender As Object, e As EventArgs) Handles btnRollInitiative.Click
         ' Instantiate new character objects
         Dim Player1 As New Character
         Dim Player2 As New Character
@@ -141,5 +137,10 @@
                              MessageBoxIcon.Information)
 
         End If
+    End Sub
+
+    Private Sub btnExit_Click(sender As Object, e As EventArgs) Handles btnExit.Click
+        Me.Close()
+        frmLoad.Close()
     End Sub
 End Class

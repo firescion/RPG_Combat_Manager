@@ -23,19 +23,18 @@ Partial Class frmCombatManager
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Me.grpDieRoller = New System.Windows.Forms.GroupBox()
-        Me.grpInitiative = New System.Windows.Forms.GroupBox()
-        Me.btnExit = New System.Windows.Forms.Button()
         Me.btnClearResults = New System.Windows.Forms.Button()
         Me.lstResultsDisplay = New System.Windows.Forms.ListBox()
-        Me.btnRoll = New System.Windows.Forms.Button()
-        Me.lblModifier = New System.Windows.Forms.Label()
-        Me.txtModifier = New System.Windows.Forms.TextBox()
-        Me.lblSize = New System.Windows.Forms.Label()
-        Me.cboDieSize = New System.Windows.Forms.ComboBox()
-        Me.lblD = New System.Windows.Forms.Label()
-        Me.txtNumberOfDice = New System.Windows.Forms.TextBox()
-        Me.lblNumberOfDice = New System.Windows.Forms.Label()
         Me.lblResults = New System.Windows.Forms.Label()
+        Me.btnRoll = New System.Windows.Forms.Button()
+        Me.lblNumberOfDice = New System.Windows.Forms.Label()
+        Me.txtNumberOfDice = New System.Windows.Forms.TextBox()
+        Me.lblModifier = New System.Windows.Forms.Label()
+        Me.lblD = New System.Windows.Forms.Label()
+        Me.txtModifier = New System.Windows.Forms.TextBox()
+        Me.cboDieSize = New System.Windows.Forms.ComboBox()
+        Me.lblSize = New System.Windows.Forms.Label()
+        Me.grpInitiative = New System.Windows.Forms.GroupBox()
         Me.dgvResults = New System.Windows.Forms.DataGridView()
         Me.lblMonsterInitiative = New System.Windows.Forms.Label()
         Me.lblPlayerInitiative = New System.Windows.Forms.Label()
@@ -54,12 +53,14 @@ Partial Class frmCombatManager
         Me.txtMonster2 = New System.Windows.Forms.TextBox()
         Me.txtMonster1 = New System.Windows.Forms.TextBox()
         Me.lblMonsterName = New System.Windows.Forms.Label()
-        Me.btnSave = New System.Windows.Forms.Button()
         Me.lblPlayerName = New System.Windows.Forms.Label()
         Me.txtPlayer4 = New System.Windows.Forms.TextBox()
         Me.txtPlayer3 = New System.Windows.Forms.TextBox()
         Me.txtPlayer2 = New System.Windows.Forms.TextBox()
         Me.txtPlayer1 = New System.Windows.Forms.TextBox()
+        Me.btnExit = New System.Windows.Forms.Button()
+        Me.btnLoadPlayers = New System.Windows.Forms.Button()
+        Me.btnSave = New System.Windows.Forms.Button()
         Me.grpDieRoller.SuspendLayout()
         Me.grpInitiative.SuspendLayout()
         CType(Me.dgvResults, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -84,8 +85,106 @@ Partial Class frmCombatManager
         Me.grpDieRoller.TabIndex = 35
         Me.grpDieRoller.TabStop = False
         '
+        'btnClearResults
+        '
+        Me.btnClearResults.Location = New System.Drawing.Point(224, 224)
+        Me.btnClearResults.Name = "btnClearResults"
+        Me.btnClearResults.Size = New System.Drawing.Size(75, 23)
+        Me.btnClearResults.TabIndex = 43
+        Me.btnClearResults.Text = "Clear Reults"
+        Me.btnClearResults.UseVisualStyleBackColor = True
+        '
+        'lstResultsDisplay
+        '
+        Me.lstResultsDisplay.FormattingEnabled = True
+        Me.lstResultsDisplay.Location = New System.Drawing.Point(6, 34)
+        Me.lstResultsDisplay.Name = "lstResultsDisplay"
+        Me.lstResultsDisplay.Size = New System.Drawing.Size(146, 303)
+        Me.lstResultsDisplay.TabIndex = 49
+        '
+        'lblResults
+        '
+        Me.lblResults.AutoSize = True
+        Me.lblResults.Location = New System.Drawing.Point(7, 14)
+        Me.lblResults.Name = "lblResults"
+        Me.lblResults.Size = New System.Drawing.Size(42, 13)
+        Me.lblResults.TabIndex = 38
+        Me.lblResults.Text = "Results"
+        '
+        'btnRoll
+        '
+        Me.btnRoll.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnRoll.Location = New System.Drawing.Point(224, 185)
+        Me.btnRoll.Name = "btnRoll"
+        Me.btnRoll.Size = New System.Drawing.Size(75, 23)
+        Me.btnRoll.TabIndex = 42
+        Me.btnRoll.Text = "&Roll Dice!"
+        Me.btnRoll.UseVisualStyleBackColor = True
+        '
+        'lblNumberOfDice
+        '
+        Me.lblNumberOfDice.AutoSize = True
+        Me.lblNumberOfDice.Location = New System.Drawing.Point(172, 126)
+        Me.lblNumberOfDice.Name = "lblNumberOfDice"
+        Me.lblNumberOfDice.Size = New System.Drawing.Size(51, 13)
+        Me.lblNumberOfDice.TabIndex = 45
+        Me.lblNumberOfDice.Text = "# of Dice"
+        '
+        'txtNumberOfDice
+        '
+        Me.txtNumberOfDice.Location = New System.Drawing.Point(179, 142)
+        Me.txtNumberOfDice.Name = "txtNumberOfDice"
+        Me.txtNumberOfDice.Size = New System.Drawing.Size(36, 20)
+        Me.txtNumberOfDice.TabIndex = 39
+        '
+        'lblModifier
+        '
+        Me.lblModifier.AutoSize = True
+        Me.lblModifier.Location = New System.Drawing.Point(302, 125)
+        Me.lblModifier.Name = "lblModifier"
+        Me.lblModifier.Size = New System.Drawing.Size(44, 13)
+        Me.lblModifier.TabIndex = 47
+        Me.lblModifier.Text = "Modifier"
+        '
+        'lblD
+        '
+        Me.lblD.AutoSize = True
+        Me.lblD.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblD.Location = New System.Drawing.Point(221, 143)
+        Me.lblD.Name = "lblD"
+        Me.lblD.Size = New System.Drawing.Size(16, 17)
+        Me.lblD.TabIndex = 48
+        Me.lblD.Text = "d"
+        '
+        'txtModifier
+        '
+        Me.txtModifier.Location = New System.Drawing.Point(309, 143)
+        Me.txtModifier.Name = "txtModifier"
+        Me.txtModifier.Size = New System.Drawing.Size(30, 20)
+        Me.txtModifier.TabIndex = 41
+        '
+        'cboDieSize
+        '
+        Me.cboDieSize.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.cboDieSize.FormattingEnabled = True
+        Me.cboDieSize.Location = New System.Drawing.Point(235, 142)
+        Me.cboDieSize.Name = "cboDieSize"
+        Me.cboDieSize.Size = New System.Drawing.Size(54, 21)
+        Me.cboDieSize.TabIndex = 40
+        '
+        'lblSize
+        '
+        Me.lblSize.AutoSize = True
+        Me.lblSize.Location = New System.Drawing.Point(249, 125)
+        Me.lblSize.Name = "lblSize"
+        Me.lblSize.Size = New System.Drawing.Size(27, 13)
+        Me.lblSize.TabIndex = 46
+        Me.lblSize.Text = "Size"
+        '
         'grpInitiative
         '
+        Me.grpInitiative.Controls.Add(Me.btnLoadPlayers)
+        Me.grpInitiative.Controls.Add(Me.btnSave)
         Me.grpInitiative.Controls.Add(Me.dgvResults)
         Me.grpInitiative.Controls.Add(Me.lblMonsterInitiative)
         Me.grpInitiative.Controls.Add(Me.lblPlayerInitiative)
@@ -104,7 +203,6 @@ Partial Class frmCombatManager
         Me.grpInitiative.Controls.Add(Me.txtMonster2)
         Me.grpInitiative.Controls.Add(Me.txtMonster1)
         Me.grpInitiative.Controls.Add(Me.lblMonsterName)
-        Me.grpInitiative.Controls.Add(Me.btnSave)
         Me.grpInitiative.Controls.Add(Me.lblPlayerName)
         Me.grpInitiative.Controls.Add(Me.txtPlayer4)
         Me.grpInitiative.Controls.Add(Me.txtPlayer3)
@@ -115,111 +213,6 @@ Partial Class frmCombatManager
         Me.grpInitiative.Size = New System.Drawing.Size(571, 333)
         Me.grpInitiative.TabIndex = 36
         Me.grpInitiative.TabStop = False
-        '
-        'btnExit
-        '
-        Me.btnExit.Location = New System.Drawing.Point(899, 365)
-        Me.btnExit.Name = "btnExit"
-        Me.btnExit.Size = New System.Drawing.Size(75, 23)
-        Me.btnExit.TabIndex = 37
-        Me.btnExit.Text = "E&xit"
-        Me.btnExit.UseVisualStyleBackColor = True
-        '
-        'btnClearResults
-        '
-        Me.btnClearResults.Location = New System.Drawing.Point(224, 224)
-        Me.btnClearResults.Name = "btnClearResults"
-        Me.btnClearResults.Size = New System.Drawing.Size(75, 23)
-        Me.btnClearResults.TabIndex = 43
-        Me.btnClearResults.Text = "Clear Reults"
-        Me.btnClearResults.UseVisualStyleBackColor = True
-        '
-        'lstResultsDisplay
-        '
-        Me.lstResultsDisplay.FormattingEnabled = True
-        Me.lstResultsDisplay.Location = New System.Drawing.Point(6, 34)
-        Me.lstResultsDisplay.Name = "lstResultsDisplay"
-        Me.lstResultsDisplay.Size = New System.Drawing.Size(146, 303)
-        Me.lstResultsDisplay.TabIndex = 49
-        '
-        'btnRoll
-        '
-        Me.btnRoll.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnRoll.Location = New System.Drawing.Point(224, 185)
-        Me.btnRoll.Name = "btnRoll"
-        Me.btnRoll.Size = New System.Drawing.Size(75, 23)
-        Me.btnRoll.TabIndex = 42
-        Me.btnRoll.Text = "&Roll Dice!"
-        Me.btnRoll.UseVisualStyleBackColor = True
-        '
-        'lblModifier
-        '
-        Me.lblModifier.AutoSize = True
-        Me.lblModifier.Location = New System.Drawing.Point(302, 125)
-        Me.lblModifier.Name = "lblModifier"
-        Me.lblModifier.Size = New System.Drawing.Size(44, 13)
-        Me.lblModifier.TabIndex = 47
-        Me.lblModifier.Text = "Modifier"
-        '
-        'txtModifier
-        '
-        Me.txtModifier.Location = New System.Drawing.Point(309, 143)
-        Me.txtModifier.Name = "txtModifier"
-        Me.txtModifier.Size = New System.Drawing.Size(30, 20)
-        Me.txtModifier.TabIndex = 41
-        '
-        'lblSize
-        '
-        Me.lblSize.AutoSize = True
-        Me.lblSize.Location = New System.Drawing.Point(249, 125)
-        Me.lblSize.Name = "lblSize"
-        Me.lblSize.Size = New System.Drawing.Size(27, 13)
-        Me.lblSize.TabIndex = 46
-        Me.lblSize.Text = "Size"
-        '
-        'cboDieSize
-        '
-        Me.cboDieSize.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
-        Me.cboDieSize.FormattingEnabled = True
-        Me.cboDieSize.Location = New System.Drawing.Point(235, 142)
-        Me.cboDieSize.Name = "cboDieSize"
-        Me.cboDieSize.Size = New System.Drawing.Size(54, 21)
-        Me.cboDieSize.TabIndex = 40
-        '
-        'lblD
-        '
-        Me.lblD.AutoSize = True
-        Me.lblD.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblD.Location = New System.Drawing.Point(221, 143)
-        Me.lblD.Name = "lblD"
-        Me.lblD.Size = New System.Drawing.Size(16, 17)
-        Me.lblD.TabIndex = 48
-        Me.lblD.Text = "d"
-        '
-        'txtNumberOfDice
-        '
-        Me.txtNumberOfDice.Location = New System.Drawing.Point(179, 142)
-        Me.txtNumberOfDice.Name = "txtNumberOfDice"
-        Me.txtNumberOfDice.Size = New System.Drawing.Size(36, 20)
-        Me.txtNumberOfDice.TabIndex = 39
-        '
-        'lblNumberOfDice
-        '
-        Me.lblNumberOfDice.AutoSize = True
-        Me.lblNumberOfDice.Location = New System.Drawing.Point(172, 126)
-        Me.lblNumberOfDice.Name = "lblNumberOfDice"
-        Me.lblNumberOfDice.Size = New System.Drawing.Size(51, 13)
-        Me.lblNumberOfDice.TabIndex = 45
-        Me.lblNumberOfDice.Text = "# of Dice"
-        '
-        'lblResults
-        '
-        Me.lblResults.AutoSize = True
-        Me.lblResults.Location = New System.Drawing.Point(7, 14)
-        Me.lblResults.Name = "lblResults"
-        Me.lblResults.Size = New System.Drawing.Size(42, 13)
-        Me.lblResults.TabIndex = 38
-        Me.lblResults.Text = "Results"
         '
         'dgvResults
         '
@@ -364,15 +357,6 @@ Partial Class frmCombatManager
         Me.lblMonsterName.TabIndex = 51
         Me.lblMonsterName.Text = "Monster/Opponent Name"
         '
-        'btnSave
-        '
-        Me.btnSave.Location = New System.Drawing.Point(308, 301)
-        Me.btnSave.Name = "btnSave"
-        Me.btnSave.Size = New System.Drawing.Size(89, 23)
-        Me.btnSave.TabIndex = 46
-        Me.btnSave.Text = "&Save Players"
-        Me.btnSave.UseVisualStyleBackColor = True
-        '
         'lblPlayerName
         '
         Me.lblPlayerName.AutoSize = True
@@ -413,6 +397,33 @@ Partial Class frmCombatManager
         Me.txtPlayer1.Size = New System.Drawing.Size(182, 20)
         Me.txtPlayer1.TabIndex = 30
         Me.txtPlayer1.Text = "Player 1"
+        '
+        'btnExit
+        '
+        Me.btnExit.Location = New System.Drawing.Point(899, 365)
+        Me.btnExit.Name = "btnExit"
+        Me.btnExit.Size = New System.Drawing.Size(75, 23)
+        Me.btnExit.TabIndex = 37
+        Me.btnExit.Text = "E&xit"
+        Me.btnExit.UseVisualStyleBackColor = True
+        '
+        'btnLoadPlayers
+        '
+        Me.btnLoadPlayers.Location = New System.Drawing.Point(104, 304)
+        Me.btnLoadPlayers.Name = "btnLoadPlayers"
+        Me.btnLoadPlayers.Size = New System.Drawing.Size(85, 23)
+        Me.btnLoadPlayers.TabIndex = 55
+        Me.btnLoadPlayers.Text = "&Load Players"
+        Me.btnLoadPlayers.UseVisualStyleBackColor = True
+        '
+        'btnSave
+        '
+        Me.btnSave.Location = New System.Drawing.Point(9, 304)
+        Me.btnSave.Name = "btnSave"
+        Me.btnSave.Size = New System.Drawing.Size(89, 23)
+        Me.btnSave.TabIndex = 54
+        Me.btnSave.Text = "&Save Players"
+        Me.btnSave.UseVisualStyleBackColor = True
         '
         'frmCombatManager
         '
@@ -464,10 +475,11 @@ Partial Class frmCombatManager
     Friend WithEvents txtMonster2 As System.Windows.Forms.TextBox
     Friend WithEvents txtMonster1 As System.Windows.Forms.TextBox
     Friend WithEvents lblMonsterName As System.Windows.Forms.Label
-    Friend WithEvents btnSave As System.Windows.Forms.Button
     Friend WithEvents lblPlayerName As System.Windows.Forms.Label
     Friend WithEvents txtPlayer4 As System.Windows.Forms.TextBox
     Friend WithEvents txtPlayer3 As System.Windows.Forms.TextBox
     Friend WithEvents txtPlayer2 As System.Windows.Forms.TextBox
     Friend WithEvents txtPlayer1 As System.Windows.Forms.TextBox
+    Friend WithEvents btnLoadPlayers As System.Windows.Forms.Button
+    Friend WithEvents btnSave As System.Windows.Forms.Button
 End Class

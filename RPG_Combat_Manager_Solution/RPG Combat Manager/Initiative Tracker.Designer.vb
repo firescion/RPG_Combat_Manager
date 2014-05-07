@@ -48,13 +48,13 @@ Partial Class frmInitiativeTracker
         Me.lblPlayerInitiative = New System.Windows.Forms.Label()
         Me.lblMonsterInitiative = New System.Windows.Forms.Label()
         Me.dgvResults = New System.Windows.Forms.DataGridView()
-        Me.btnExit = New System.Windows.Forms.Button()
         Me.NameDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.InitiativeModDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.InitiativeTotalDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.CharacterBindingSource1 = New System.Windows.Forms.BindingSource(Me.components)
-        Me.CharacterBindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.btnExit = New System.Windows.Forms.Button()
         Me.btnLoadPlayers = New System.Windows.Forms.Button()
+        Me.CharacterBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         CType(Me.dgvResults, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.CharacterBindingSource1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.CharacterBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -262,15 +262,6 @@ Partial Class frmInitiativeTracker
         Me.dgvResults.Size = New System.Drawing.Size(268, 251)
         Me.dgvResults.TabIndex = 28
         '
-        'btnExit
-        '
-        Me.btnExit.Location = New System.Drawing.Point(491, 325)
-        Me.btnExit.Name = "btnExit"
-        Me.btnExit.Size = New System.Drawing.Size(75, 23)
-        Me.btnExit.TabIndex = 29
-        Me.btnExit.Text = "E&xit"
-        Me.btnExit.UseVisualStyleBackColor = True
-        '
         'NameDataGridViewTextBoxColumn
         '
         Me.NameDataGridViewTextBoxColumn.DataPropertyName = "Name"
@@ -294,9 +285,14 @@ Partial Class frmInitiativeTracker
         '
         Me.CharacterBindingSource1.DataSource = GetType(RPG_Combat_Manager.Character)
         '
-        'CharacterBindingSource
+        'btnExit
         '
-        Me.CharacterBindingSource.DataSource = GetType(RPG_Combat_Manager.Character)
+        Me.btnExit.Location = New System.Drawing.Point(491, 325)
+        Me.btnExit.Name = "btnExit"
+        Me.btnExit.Size = New System.Drawing.Size(75, 23)
+        Me.btnExit.TabIndex = 29
+        Me.btnExit.Text = "E&xit"
+        Me.btnExit.UseVisualStyleBackColor = True
         '
         'btnLoadPlayers
         '
@@ -306,6 +302,10 @@ Partial Class frmInitiativeTracker
         Me.btnLoadPlayers.TabIndex = 30
         Me.btnLoadPlayers.Text = "&Load Players"
         Me.btnLoadPlayers.UseVisualStyleBackColor = True
+        '
+        'CharacterBindingSource
+        '
+        Me.CharacterBindingSource.DataSource = GetType(RPG_Combat_Manager.Character)
         '
         'frmInitiativeTracker
         '
