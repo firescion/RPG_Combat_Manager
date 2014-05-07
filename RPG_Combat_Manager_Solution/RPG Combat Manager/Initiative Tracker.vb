@@ -1,6 +1,6 @@
 ﻿Public Class frmInitiativeTracker
 
-    Private Sub mnuExit_Click(sender As Object, e As EventArgs) Handles mnuExit.Click
+    Private Sub btnExit_Click(sender As Object, e As EventArgs)
         Me.Close()
         frmLoad.Close()
     End Sub
@@ -36,7 +36,6 @@
         Dim Monster2 As New Character
         Dim Monster3 As New Character
         Dim Monster4 As New Character
-        Dim intInitiativeRoll(7) As Integer
 
         'assigns values to Character's public properties
         Player1.Name = txtPlayer1.Text

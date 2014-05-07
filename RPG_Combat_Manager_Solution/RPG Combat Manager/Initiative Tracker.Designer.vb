@@ -28,14 +28,6 @@ Partial Class frmInitiativeTracker
         Me.txtPlayer3 = New System.Windows.Forms.TextBox()
         Me.txtPlayer4 = New System.Windows.Forms.TextBox()
         Me.lblPlayerName = New System.Windows.Forms.Label()
-        Me.MenuStrip = New System.Windows.Forms.MenuStrip()
-        Me.mnuFile = New System.Windows.Forms.ToolStripMenuItem()
-        Me.mnuLoadPlayerNames = New System.Windows.Forms.ToolStripMenuItem()
-        Me.mnuSavePlayerNames = New System.Windows.Forms.ToolStripMenuItem()
-        Me.ToolStripSeparator2 = New System.Windows.Forms.ToolStripSeparator()
-        Me.mnuRollInitiative = New System.Windows.Forms.ToolStripMenuItem()
-        Me.ToolStripSeparator1 = New System.Windows.Forms.ToolStripSeparator()
-        Me.mnuExit = New System.Windows.Forms.ToolStripMenuItem()
         Me.ExitToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.btnSave = New System.Windows.Forms.Button()
         Me.lblMonsterName = New System.Windows.Forms.Label()
@@ -59,10 +51,9 @@ Partial Class frmInitiativeTracker
         Me.NameDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.InitiativeModDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.InitiativeTotalDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.KInitiativeTotalDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.CharacterBindingSource1 = New System.Windows.Forms.BindingSource(Me.components)
         Me.CharacterBindingSource = New System.Windows.Forms.BindingSource(Me.components)
-        Me.MenuStrip.SuspendLayout()
+        Me.btnExit = New System.Windows.Forms.Button()
         CType(Me.dgvResults, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.CharacterBindingSource1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.CharacterBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -74,6 +65,7 @@ Partial Class frmInitiativeTracker
         Me.txtPlayer1.Name = "txtPlayer1"
         Me.txtPlayer1.Size = New System.Drawing.Size(182, 20)
         Me.txtPlayer1.TabIndex = 1
+        Me.txtPlayer1.Text = "Player 1"
         '
         'txtPlayer2
         '
@@ -81,6 +73,7 @@ Partial Class frmInitiativeTracker
         Me.txtPlayer2.Name = "txtPlayer2"
         Me.txtPlayer2.Size = New System.Drawing.Size(182, 20)
         Me.txtPlayer2.TabIndex = 3
+        Me.txtPlayer2.Text = "Player 2"
         '
         'txtPlayer3
         '
@@ -88,6 +81,7 @@ Partial Class frmInitiativeTracker
         Me.txtPlayer3.Name = "txtPlayer3"
         Me.txtPlayer3.Size = New System.Drawing.Size(182, 20)
         Me.txtPlayer3.TabIndex = 5
+        Me.txtPlayer3.Text = "Player 3"
         '
         'txtPlayer4
         '
@@ -95,6 +89,7 @@ Partial Class frmInitiativeTracker
         Me.txtPlayer4.Name = "txtPlayer4"
         Me.txtPlayer4.Size = New System.Drawing.Size(182, 20)
         Me.txtPlayer4.TabIndex = 7
+        Me.txtPlayer4.Text = "Player 4"
         '
         'lblPlayerName
         '
@@ -105,56 +100,6 @@ Partial Class frmInitiativeTracker
         Me.lblPlayerName.TabIndex = 23
         Me.lblPlayerName.Text = "Player name"
         '
-        'MenuStrip
-        '
-        Me.MenuStrip.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.mnuFile})
-        Me.MenuStrip.Location = New System.Drawing.Point(0, 0)
-        Me.MenuStrip.Name = "MenuStrip"
-        Me.MenuStrip.Size = New System.Drawing.Size(709, 24)
-        Me.MenuStrip.TabIndex = 0
-        Me.MenuStrip.Text = "MenuStrip"
-        '
-        'mnuFile
-        '
-        Me.mnuFile.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.mnuLoadPlayerNames, Me.mnuSavePlayerNames, Me.ToolStripSeparator2, Me.mnuRollInitiative, Me.ToolStripSeparator1, Me.mnuExit})
-        Me.mnuFile.Name = "mnuFile"
-        Me.mnuFile.Size = New System.Drawing.Size(37, 20)
-        Me.mnuFile.Text = "&File"
-        '
-        'mnuLoadPlayerNames
-        '
-        Me.mnuLoadPlayerNames.Name = "mnuLoadPlayerNames"
-        Me.mnuLoadPlayerNames.Size = New System.Drawing.Size(175, 22)
-        Me.mnuLoadPlayerNames.Text = "&Load Player Names"
-        '
-        'mnuSavePlayerNames
-        '
-        Me.mnuSavePlayerNames.Name = "mnuSavePlayerNames"
-        Me.mnuSavePlayerNames.Size = New System.Drawing.Size(175, 22)
-        Me.mnuSavePlayerNames.Text = "&Save Player Names"
-        '
-        'ToolStripSeparator2
-        '
-        Me.ToolStripSeparator2.Name = "ToolStripSeparator2"
-        Me.ToolStripSeparator2.Size = New System.Drawing.Size(172, 6)
-        '
-        'mnuRollInitiative
-        '
-        Me.mnuRollInitiative.Name = "mnuRollInitiative"
-        Me.mnuRollInitiative.Size = New System.Drawing.Size(175, 22)
-        Me.mnuRollInitiative.Text = "&Roll Initiative!"
-        '
-        'ToolStripSeparator1
-        '
-        Me.ToolStripSeparator1.Name = "ToolStripSeparator1"
-        Me.ToolStripSeparator1.Size = New System.Drawing.Size(172, 6)
-        '
-        'mnuExit
-        '
-        Me.mnuExit.Name = "mnuExit"
-        Me.mnuExit.Size = New System.Drawing.Size(175, 22)
-        Me.mnuExit.Text = "E&xit"
-        '
         'ExitToolStripMenuItem
         '
         Me.ExitToolStripMenuItem.Name = "ExitToolStripMenuItem"
@@ -163,11 +108,11 @@ Partial Class frmInitiativeTracker
         '
         'btnSave
         '
-        Me.btnSave.Location = New System.Drawing.Point(303, 63)
+        Me.btnSave.Location = New System.Drawing.Point(232, 325)
         Me.btnSave.Name = "btnSave"
-        Me.btnSave.Size = New System.Drawing.Size(75, 23)
+        Me.btnSave.Size = New System.Drawing.Size(89, 23)
         Me.btnSave.TabIndex = 17
-        Me.btnSave.Text = "&Save"
+        Me.btnSave.Text = "&Save Players"
         Me.btnSave.UseVisualStyleBackColor = True
         '
         'lblMonsterName
@@ -185,6 +130,7 @@ Partial Class frmInitiativeTracker
         Me.txtMonster1.Name = "txtMonster1"
         Me.txtMonster1.Size = New System.Drawing.Size(179, 20)
         Me.txtMonster1.TabIndex = 9
+        Me.txtMonster1.Text = "Monster 1"
         '
         'txtMonster2
         '
@@ -192,6 +138,7 @@ Partial Class frmInitiativeTracker
         Me.txtMonster2.Name = "txtMonster2"
         Me.txtMonster2.Size = New System.Drawing.Size(179, 20)
         Me.txtMonster2.TabIndex = 11
+        Me.txtMonster2.Text = "Monster 2"
         '
         'txtMonster3
         '
@@ -199,6 +146,7 @@ Partial Class frmInitiativeTracker
         Me.txtMonster3.Name = "txtMonster3"
         Me.txtMonster3.Size = New System.Drawing.Size(179, 20)
         Me.txtMonster3.TabIndex = 13
+        Me.txtMonster3.Text = "Monster 3"
         '
         'txtMonster4
         '
@@ -206,11 +154,12 @@ Partial Class frmInitiativeTracker
         Me.txtMonster4.Name = "txtMonster4"
         Me.txtMonster4.Size = New System.Drawing.Size(179, 20)
         Me.txtMonster4.TabIndex = 15
+        Me.txtMonster4.Text = "Monster 4"
         '
         'btnRollInitiative
         '
         Me.btnRollInitiative.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnRollInitiative.Location = New System.Drawing.Point(220, 302)
+        Me.btnRollInitiative.Location = New System.Drawing.Point(327, 325)
         Me.btnRollInitiative.Name = "btnRollInitiative"
         Me.btnRollInitiative.Size = New System.Drawing.Size(158, 23)
         Me.btnRollInitiative.TabIndex = 21
@@ -220,7 +169,7 @@ Partial Class frmInitiativeTracker
         'Label3
         '
         Me.Label3.AutoSize = True
-        Me.Label3.Location = New System.Drawing.Point(391, 24)
+        Me.Label3.Location = New System.Drawing.Point(295, 18)
         Me.Label3.Name = "Label3"
         Me.Label3.Size = New System.Drawing.Size(78, 13)
         Me.Label3.TabIndex = 25
@@ -305,9 +254,9 @@ Partial Class frmInitiativeTracker
         Me.dgvResults.AutoGenerateColumns = False
         Me.dgvResults.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill
         Me.dgvResults.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.dgvResults.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.NameDataGridViewTextBoxColumn, Me.InitiativeModDataGridViewTextBoxColumn, Me.InitiativeTotalDataGridViewTextBoxColumn, Me.KInitiativeTotalDataGridViewTextBoxColumn})
+        Me.dgvResults.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.NameDataGridViewTextBoxColumn, Me.InitiativeModDataGridViewTextBoxColumn, Me.InitiativeTotalDataGridViewTextBoxColumn})
         Me.dgvResults.DataSource = Me.CharacterBindingSource1
-        Me.dgvResults.Location = New System.Drawing.Point(394, 54)
+        Me.dgvResults.Location = New System.Drawing.Point(298, 48)
         Me.dgvResults.Name = "dgvResults"
         Me.dgvResults.Size = New System.Drawing.Size(268, 251)
         Me.dgvResults.TabIndex = 28
@@ -331,13 +280,6 @@ Partial Class frmInitiativeTracker
         Me.InitiativeTotalDataGridViewTextBoxColumn.HeaderText = "InitiativeTotal"
         Me.InitiativeTotalDataGridViewTextBoxColumn.Name = "InitiativeTotalDataGridViewTextBoxColumn"
         '
-        'KInitiativeTotalDataGridViewTextBoxColumn
-        '
-        Me.KInitiativeTotalDataGridViewTextBoxColumn.DataPropertyName = "kInitiativeTotal"
-        Me.KInitiativeTotalDataGridViewTextBoxColumn.HeaderText = "kInitiativeTotal"
-        Me.KInitiativeTotalDataGridViewTextBoxColumn.Name = "KInitiativeTotalDataGridViewTextBoxColumn"
-        Me.KInitiativeTotalDataGridViewTextBoxColumn.Visible = False
-        '
         'CharacterBindingSource1
         '
         Me.CharacterBindingSource1.DataSource = GetType(RPG_Combat_Manager.Character)
@@ -346,11 +288,21 @@ Partial Class frmInitiativeTracker
         '
         Me.CharacterBindingSource.DataSource = GetType(RPG_Combat_Manager.Character)
         '
+        'btnExit
+        '
+        Me.btnExit.Location = New System.Drawing.Point(491, 325)
+        Me.btnExit.Name = "btnExit"
+        Me.btnExit.Size = New System.Drawing.Size(75, 23)
+        Me.btnExit.TabIndex = 29
+        Me.btnExit.Text = "E&xit"
+        Me.btnExit.UseVisualStyleBackColor = True
+        '
         'frmInitiativeTracker
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(709, 340)
+        Me.ClientSize = New System.Drawing.Size(579, 360)
+        Me.Controls.Add(Me.btnExit)
         Me.Controls.Add(Me.dgvResults)
         Me.Controls.Add(Me.lblMonsterInitiative)
         Me.Controls.Add(Me.lblPlayerInitiative)
@@ -375,12 +327,8 @@ Partial Class frmInitiativeTracker
         Me.Controls.Add(Me.txtPlayer3)
         Me.Controls.Add(Me.txtPlayer2)
         Me.Controls.Add(Me.txtPlayer1)
-        Me.Controls.Add(Me.MenuStrip)
-        Me.MainMenuStrip = Me.MenuStrip
         Me.Name = "frmInitiativeTracker"
         Me.Text = "Initiative Tracker"
-        Me.MenuStrip.ResumeLayout(False)
-        Me.MenuStrip.PerformLayout()
         CType(Me.dgvResults, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.CharacterBindingSource1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.CharacterBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
@@ -393,14 +341,6 @@ Partial Class frmInitiativeTracker
     Friend WithEvents txtPlayer3 As System.Windows.Forms.TextBox
     Friend WithEvents txtPlayer4 As System.Windows.Forms.TextBox
     Friend WithEvents lblPlayerName As System.Windows.Forms.Label
-    Friend WithEvents MenuStrip As System.Windows.Forms.MenuStrip
-    Friend WithEvents mnuFile As System.Windows.Forms.ToolStripMenuItem
-    Friend WithEvents mnuLoadPlayerNames As System.Windows.Forms.ToolStripMenuItem
-    Friend WithEvents mnuSavePlayerNames As System.Windows.Forms.ToolStripMenuItem
-    Friend WithEvents ToolStripSeparator2 As System.Windows.Forms.ToolStripSeparator
-    Friend WithEvents mnuRollInitiative As System.Windows.Forms.ToolStripMenuItem
-    Friend WithEvents ToolStripSeparator1 As System.Windows.Forms.ToolStripSeparator
-    Friend WithEvents mnuExit As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents ExitToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents btnSave As System.Windows.Forms.Button
     Friend WithEvents lblMonsterName As System.Windows.Forms.Label
@@ -427,4 +367,5 @@ Partial Class frmInitiativeTracker
     Friend WithEvents InitiativeTotalDataGridViewTextBoxColumn As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents KInitiativeTotalDataGridViewTextBoxColumn As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents CharacterBindingSource1 As System.Windows.Forms.BindingSource
+    Friend WithEvents btnExit As System.Windows.Forms.Button
 End Class
