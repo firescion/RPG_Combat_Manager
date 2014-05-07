@@ -48,12 +48,13 @@ Partial Class frmInitiativeTracker
         Me.lblPlayerInitiative = New System.Windows.Forms.Label()
         Me.lblMonsterInitiative = New System.Windows.Forms.Label()
         Me.dgvResults = New System.Windows.Forms.DataGridView()
+        Me.btnExit = New System.Windows.Forms.Button()
         Me.NameDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.InitiativeModDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.InitiativeTotalDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.CharacterBindingSource1 = New System.Windows.Forms.BindingSource(Me.components)
         Me.CharacterBindingSource = New System.Windows.Forms.BindingSource(Me.components)
-        Me.btnExit = New System.Windows.Forms.Button()
+        Me.btnLoadPlayers = New System.Windows.Forms.Button()
         CType(Me.dgvResults, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.CharacterBindingSource1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.CharacterBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -108,7 +109,7 @@ Partial Class frmInitiativeTracker
         '
         'btnSave
         '
-        Me.btnSave.Location = New System.Drawing.Point(232, 325)
+        Me.btnSave.Location = New System.Drawing.Point(12, 325)
         Me.btnSave.Name = "btnSave"
         Me.btnSave.Size = New System.Drawing.Size(89, 23)
         Me.btnSave.TabIndex = 17
@@ -261,6 +262,15 @@ Partial Class frmInitiativeTracker
         Me.dgvResults.Size = New System.Drawing.Size(268, 251)
         Me.dgvResults.TabIndex = 28
         '
+        'btnExit
+        '
+        Me.btnExit.Location = New System.Drawing.Point(491, 325)
+        Me.btnExit.Name = "btnExit"
+        Me.btnExit.Size = New System.Drawing.Size(75, 23)
+        Me.btnExit.TabIndex = 29
+        Me.btnExit.Text = "E&xit"
+        Me.btnExit.UseVisualStyleBackColor = True
+        '
         'NameDataGridViewTextBoxColumn
         '
         Me.NameDataGridViewTextBoxColumn.DataPropertyName = "Name"
@@ -288,20 +298,21 @@ Partial Class frmInitiativeTracker
         '
         Me.CharacterBindingSource.DataSource = GetType(RPG_Combat_Manager.Character)
         '
-        'btnExit
+        'btnLoadPlayers
         '
-        Me.btnExit.Location = New System.Drawing.Point(491, 325)
-        Me.btnExit.Name = "btnExit"
-        Me.btnExit.Size = New System.Drawing.Size(75, 23)
-        Me.btnExit.TabIndex = 29
-        Me.btnExit.Text = "E&xit"
-        Me.btnExit.UseVisualStyleBackColor = True
+        Me.btnLoadPlayers.Location = New System.Drawing.Point(107, 325)
+        Me.btnLoadPlayers.Name = "btnLoadPlayers"
+        Me.btnLoadPlayers.Size = New System.Drawing.Size(85, 23)
+        Me.btnLoadPlayers.TabIndex = 30
+        Me.btnLoadPlayers.Text = "&Load Players"
+        Me.btnLoadPlayers.UseVisualStyleBackColor = True
         '
         'frmInitiativeTracker
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(579, 360)
+        Me.Controls.Add(Me.btnLoadPlayers)
         Me.Controls.Add(Me.btnExit)
         Me.Controls.Add(Me.dgvResults)
         Me.Controls.Add(Me.lblMonsterInitiative)
@@ -368,4 +379,5 @@ Partial Class frmInitiativeTracker
     Friend WithEvents KInitiativeTotalDataGridViewTextBoxColumn As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents CharacterBindingSource1 As System.Windows.Forms.BindingSource
     Friend WithEvents btnExit As System.Windows.Forms.Button
+    Friend WithEvents btnLoadPlayers As System.Windows.Forms.Button
 End Class

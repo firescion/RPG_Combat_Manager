@@ -98,4 +98,48 @@
                             Select l).ToList()
 
     End Sub
+
+    Private Sub btnLoadPlayers_Click(sender As Object, e As EventArgs) Handles btnLoadPlayers.Click
+
+        Dim inFile As IO.StreamReader
+
+        If IO.File.Exists("players.txt") Then
+            ' open the file for input
+            inFile = IO.File.OpenText("players.txt")
+
+            'read a name
+            Dim jss As New System.Web.Script.Serialization.JavaScriptSerializer()
+            Dim list = jss.Deserialize(Of List(Of Character))(inFile.ReadLine)
+            'close the file
+            inFile.Close()
+
+            Dim players = (From l In list
+                          Select l).ToArray()
+
+
+            'add name to text boxes
+            Dim playerFields(3) As TextBox
+            playerFields(0) = txtPlayer1
+            playerFields(1) = txtPlayer2
+            playerFields(2) = txtPlayer3
+            playerFields(3) = txtPlayer4
+
+            Dim initiativeFields(3) As TextBox
+            initiativeFields(0) = txtPlayer1Initiative
+            initiativeFields(1) = txtPlayer2Initiative
+            initiativeFields(2) = txtPlayer3Initiative
+            initiativeFields(3) = txtPlayer4Initiative
+
+            For index = 0 To 3
+                playerFields(index).Text = players(index).Name
+                initiativeFields(index).Text = players(index).InitiativeMod
+            Next
+
+        Else
+            MessageBox.Show("Can't find the file", "players.txt",
+                             MessageBoxButtons.OK,
+                             MessageBoxIcon.Information)
+
+        End If
+    End Sub
 End Class
