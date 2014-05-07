@@ -1,7 +1,7 @@
 ﻿Public Class Character
     Private _strName As String
     Private _intInitiativeMod As Integer
-    Private _randGen As New Random
+
     Private _intInitiativeTotal As Integer
     
     Public Property Name As String
@@ -32,9 +32,12 @@
         End Set
     End Property
 
-    Public Function GetInitiative() As Integer
-        Return _intInitiativeMod + _randGen.Next(1, 21)
+
+    Public Function GetInitiative()
+        Randomize()
+        Dim _roll As Integer = Int(Int((20 * Rnd()) + 1))
+        InitiativeTotal = _intInitiativeMod + _roll
+
     End Function
 
-    Public Property kInitiativeTotal As Integer
 End Class
