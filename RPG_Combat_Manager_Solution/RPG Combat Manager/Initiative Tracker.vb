@@ -57,27 +57,6 @@
         Integer.TryParse(txtMonster3Initiative.Text, Monster3.InitiativeMod)
         Integer.TryParse(txtMonster4Initiative.Text, Monster4.InitiativeMod)
 
-        'assigns initiative roll (1-20+Initiative modifier) to a variable 
-        intInitiativeRoll(0) = Player1.GetInitiative()
-        intInitiativeRoll(1) = Player2.GetInitiative()
-        intInitiativeRoll(2) = Player3.GetInitiative()
-        intInitiativeRoll(3) = Player4.GetInitiative()
-        intInitiativeRoll(4) = Monster1.GetInitiative()
-        intInitiativeRoll(5) = Monster2.GetInitiative()
-        intInitiativeRoll(6) = Monster3.GetInitiative()
-        intInitiativeRoll(7) = Monster4.GetInitiative()
-
-        'assigns total initiative to class
-        Player1.InitiativeTotal = intInitiativeRoll(0)
-        Player2.InitiativeTotal = intInitiativeRoll(1)
-        Player3.InitiativeTotal = intInitiativeRoll(2)
-        Player4.InitiativeTotal = intInitiativeRoll(3)
-        Monster1.InitiativeTotal = intInitiativeRoll(4)
-        Monster2.InitiativeTotal = intInitiativeRoll(5)
-        Monster3.InitiativeTotal = intInitiativeRoll(6)
-        Monster4.InitiativeTotal = intInitiativeRoll(7)
-
-
         Dim list = New List(Of Character)
         list.Add(Player1)
         list.Add(Player2)
@@ -87,6 +66,10 @@
         list.Add(Monster2)
         list.Add(Monster3)
         list.Add(Monster4)
+
+        For Each character As Character In list
+            character.GetInitiative()
+        Next
 
         Dim sorted = From Character In list
                      Where Character.InitiativeTotal
