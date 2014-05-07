@@ -38,18 +38,13 @@ Partial Class frmInitiativeTracker
         Me.mnuExit = New System.Windows.Forms.ToolStripMenuItem()
         Me.ExitToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.btnSave = New System.Windows.Forms.Button()
-        Me.btnLoad = New System.Windows.Forms.Button()
         Me.lblMonsterName = New System.Windows.Forms.Label()
         Me.txtMonster1 = New System.Windows.Forms.TextBox()
         Me.txtMonster2 = New System.Windows.Forms.TextBox()
         Me.txtMonster3 = New System.Windows.Forms.TextBox()
         Me.txtMonster4 = New System.Windows.Forms.TextBox()
-        Me.btnAddP = New System.Windows.Forms.Button()
         Me.btnRollInitiative = New System.Windows.Forms.Button()
-        Me.lstIntOrder = New System.Windows.Forms.ListBox()
-        Me.CharacterBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.Label3 = New System.Windows.Forms.Label()
-        Me.btnAddM = New System.Windows.Forms.Button()
         Me.txtPlayer1Initiative = New System.Windows.Forms.TextBox()
         Me.txtPlayer2Initiative = New System.Windows.Forms.TextBox()
         Me.txtPlayer3Initiative = New System.Windows.Forms.TextBox()
@@ -60,7 +55,16 @@ Partial Class frmInitiativeTracker
         Me.txtMonster4Initiative = New System.Windows.Forms.TextBox()
         Me.lblPlayerInitiative = New System.Windows.Forms.Label()
         Me.lblMonsterInitiative = New System.Windows.Forms.Label()
+        Me.dgvResults = New System.Windows.Forms.DataGridView()
+        Me.NameDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.InitiativeModDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.InitiativeTotalDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.KInitiativeTotalDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.CharacterBindingSource1 = New System.Windows.Forms.BindingSource(Me.components)
+        Me.CharacterBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.MenuStrip.SuspendLayout()
+        CType(Me.dgvResults, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.CharacterBindingSource1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.CharacterBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
@@ -106,7 +110,7 @@ Partial Class frmInitiativeTracker
         Me.MenuStrip.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.mnuFile})
         Me.MenuStrip.Location = New System.Drawing.Point(0, 0)
         Me.MenuStrip.Name = "MenuStrip"
-        Me.MenuStrip.Size = New System.Drawing.Size(604, 24)
+        Me.MenuStrip.Size = New System.Drawing.Size(709, 24)
         Me.MenuStrip.TabIndex = 0
         Me.MenuStrip.Text = "MenuStrip"
         '
@@ -166,15 +170,6 @@ Partial Class frmInitiativeTracker
         Me.btnSave.Text = "&Save"
         Me.btnSave.UseVisualStyleBackColor = True
         '
-        'btnLoad
-        '
-        Me.btnLoad.Location = New System.Drawing.Point(303, 89)
-        Me.btnLoad.Name = "btnLoad"
-        Me.btnLoad.Size = New System.Drawing.Size(75, 23)
-        Me.btnLoad.TabIndex = 18
-        Me.btnLoad.Text = "&Load"
-        Me.btnLoad.UseVisualStyleBackColor = True
-        '
         'lblMonsterName
         '
         Me.lblMonsterName.AutoSize = True
@@ -212,15 +207,6 @@ Partial Class frmInitiativeTracker
         Me.txtMonster4.Size = New System.Drawing.Size(179, 20)
         Me.txtMonster4.TabIndex = 15
         '
-        'btnAddP
-        '
-        Me.btnAddP.Location = New System.Drawing.Point(303, 116)
-        Me.btnAddP.Name = "btnAddP"
-        Me.btnAddP.Size = New System.Drawing.Size(75, 23)
-        Me.btnAddP.TabIndex = 19
-        Me.btnAddP.Text = "&Add"
-        Me.btnAddP.UseVisualStyleBackColor = True
-        '
         'btnRollInitiative
         '
         Me.btnRollInitiative.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
@@ -231,18 +217,6 @@ Partial Class frmInitiativeTracker
         Me.btnRollInitiative.Text = "Roll Initiative!"
         Me.btnRollInitiative.UseVisualStyleBackColor = True
         '
-        'lstIntOrder
-        '
-        Me.lstIntOrder.FormattingEnabled = True
-        Me.lstIntOrder.Location = New System.Drawing.Point(391, 43)
-        Me.lstIntOrder.Name = "lstIntOrder"
-        Me.lstIntOrder.Size = New System.Drawing.Size(179, 251)
-        Me.lstIntOrder.TabIndex = 22
-        '
-        'CharacterBindingSource
-        '
-        Me.CharacterBindingSource.DataSource = GetType(RPG_Combat_Manager.Character)
-        '
         'Label3
         '
         Me.Label3.AutoSize = True
@@ -251,15 +225,6 @@ Partial Class frmInitiativeTracker
         Me.Label3.Size = New System.Drawing.Size(78, 13)
         Me.Label3.TabIndex = 25
         Me.Label3.Text = "Initiative Order:"
-        '
-        'btnAddM
-        '
-        Me.btnAddM.Location = New System.Drawing.Point(303, 218)
-        Me.btnAddM.Name = "btnAddM"
-        Me.btnAddM.Size = New System.Drawing.Size(75, 23)
-        Me.btnAddM.TabIndex = 20
-        Me.btnAddM.Text = "&Add"
-        Me.btnAddM.UseVisualStyleBackColor = True
         '
         'txtPlayer1Initiative
         '
@@ -335,11 +300,58 @@ Partial Class frmInitiativeTracker
         Me.lblMonsterInitiative.TabIndex = 27
         Me.lblMonsterInitiative.Text = "Initiative"
         '
+        'dgvResults
+        '
+        Me.dgvResults.AutoGenerateColumns = False
+        Me.dgvResults.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill
+        Me.dgvResults.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.dgvResults.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.NameDataGridViewTextBoxColumn, Me.InitiativeModDataGridViewTextBoxColumn, Me.InitiativeTotalDataGridViewTextBoxColumn, Me.KInitiativeTotalDataGridViewTextBoxColumn})
+        Me.dgvResults.DataSource = Me.CharacterBindingSource1
+        Me.dgvResults.Location = New System.Drawing.Point(394, 54)
+        Me.dgvResults.Name = "dgvResults"
+        Me.dgvResults.Size = New System.Drawing.Size(268, 251)
+        Me.dgvResults.TabIndex = 28
+        '
+        'NameDataGridViewTextBoxColumn
+        '
+        Me.NameDataGridViewTextBoxColumn.DataPropertyName = "Name"
+        Me.NameDataGridViewTextBoxColumn.HeaderText = "Name"
+        Me.NameDataGridViewTextBoxColumn.Name = "NameDataGridViewTextBoxColumn"
+        '
+        'InitiativeModDataGridViewTextBoxColumn
+        '
+        Me.InitiativeModDataGridViewTextBoxColumn.DataPropertyName = "InitiativeMod"
+        Me.InitiativeModDataGridViewTextBoxColumn.HeaderText = "InitiativeMod"
+        Me.InitiativeModDataGridViewTextBoxColumn.Name = "InitiativeModDataGridViewTextBoxColumn"
+        Me.InitiativeModDataGridViewTextBoxColumn.Visible = False
+        '
+        'InitiativeTotalDataGridViewTextBoxColumn
+        '
+        Me.InitiativeTotalDataGridViewTextBoxColumn.DataPropertyName = "InitiativeTotal"
+        Me.InitiativeTotalDataGridViewTextBoxColumn.HeaderText = "InitiativeTotal"
+        Me.InitiativeTotalDataGridViewTextBoxColumn.Name = "InitiativeTotalDataGridViewTextBoxColumn"
+        '
+        'KInitiativeTotalDataGridViewTextBoxColumn
+        '
+        Me.KInitiativeTotalDataGridViewTextBoxColumn.DataPropertyName = "kInitiativeTotal"
+        Me.KInitiativeTotalDataGridViewTextBoxColumn.HeaderText = "kInitiativeTotal"
+        Me.KInitiativeTotalDataGridViewTextBoxColumn.Name = "KInitiativeTotalDataGridViewTextBoxColumn"
+        Me.KInitiativeTotalDataGridViewTextBoxColumn.Visible = False
+        '
+        'CharacterBindingSource1
+        '
+        Me.CharacterBindingSource1.DataSource = GetType(RPG_Combat_Manager.Character)
+        '
+        'CharacterBindingSource
+        '
+        Me.CharacterBindingSource.DataSource = GetType(RPG_Combat_Manager.Character)
+        '
         'frmInitiativeTracker
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(604, 340)
+        Me.ClientSize = New System.Drawing.Size(709, 340)
+        Me.Controls.Add(Me.dgvResults)
         Me.Controls.Add(Me.lblMonsterInitiative)
         Me.Controls.Add(Me.lblPlayerInitiative)
         Me.Controls.Add(Me.txtMonster4Initiative)
@@ -350,17 +362,13 @@ Partial Class frmInitiativeTracker
         Me.Controls.Add(Me.txtPlayer3Initiative)
         Me.Controls.Add(Me.txtPlayer2Initiative)
         Me.Controls.Add(Me.txtPlayer1Initiative)
-        Me.Controls.Add(Me.btnAddM)
         Me.Controls.Add(Me.Label3)
-        Me.Controls.Add(Me.lstIntOrder)
         Me.Controls.Add(Me.btnRollInitiative)
-        Me.Controls.Add(Me.btnAddP)
         Me.Controls.Add(Me.txtMonster4)
         Me.Controls.Add(Me.txtMonster3)
         Me.Controls.Add(Me.txtMonster2)
         Me.Controls.Add(Me.txtMonster1)
         Me.Controls.Add(Me.lblMonsterName)
-        Me.Controls.Add(Me.btnLoad)
         Me.Controls.Add(Me.btnSave)
         Me.Controls.Add(Me.lblPlayerName)
         Me.Controls.Add(Me.txtPlayer4)
@@ -373,6 +381,8 @@ Partial Class frmInitiativeTracker
         Me.Text = "Initiative Tracker"
         Me.MenuStrip.ResumeLayout(False)
         Me.MenuStrip.PerformLayout()
+        CType(Me.dgvResults, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.CharacterBindingSource1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.CharacterBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
@@ -393,17 +403,13 @@ Partial Class frmInitiativeTracker
     Friend WithEvents mnuExit As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents ExitToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents btnSave As System.Windows.Forms.Button
-    Friend WithEvents btnLoad As System.Windows.Forms.Button
     Friend WithEvents lblMonsterName As System.Windows.Forms.Label
     Friend WithEvents txtMonster1 As System.Windows.Forms.TextBox
     Friend WithEvents txtMonster2 As System.Windows.Forms.TextBox
     Friend WithEvents txtMonster3 As System.Windows.Forms.TextBox
     Friend WithEvents txtMonster4 As System.Windows.Forms.TextBox
-    Friend WithEvents btnAddP As System.Windows.Forms.Button
     Friend WithEvents btnRollInitiative As System.Windows.Forms.Button
-    Friend WithEvents lstIntOrder As System.Windows.Forms.ListBox
     Friend WithEvents Label3 As System.Windows.Forms.Label
-    Friend WithEvents btnAddM As System.Windows.Forms.Button
     Friend WithEvents txtPlayer1Initiative As System.Windows.Forms.TextBox
     Friend WithEvents txtPlayer2Initiative As System.Windows.Forms.TextBox
     Friend WithEvents txtPlayer3Initiative As System.Windows.Forms.TextBox
@@ -415,4 +421,10 @@ Partial Class frmInitiativeTracker
     Friend WithEvents lblPlayerInitiative As System.Windows.Forms.Label
     Friend WithEvents lblMonsterInitiative As System.Windows.Forms.Label
     Friend WithEvents CharacterBindingSource As System.Windows.Forms.BindingSource
+    Friend WithEvents dgvResults As System.Windows.Forms.DataGridView
+    Friend WithEvents NameDataGridViewTextBoxColumn As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents InitiativeModDataGridViewTextBoxColumn As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents InitiativeTotalDataGridViewTextBoxColumn As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents KInitiativeTotalDataGridViewTextBoxColumn As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents CharacterBindingSource1 As System.Windows.Forms.BindingSource
 End Class

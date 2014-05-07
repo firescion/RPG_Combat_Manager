@@ -58,14 +58,14 @@
         Integer.TryParse(txtMonster4Initiative.Text, Monster4.InitiativeMod)
 
         'assigns initiative roll (1-20+Initiative modifier) to a variable 
-        intInitiativeRoll(0) = Player1.GetInitiative
-        intInitiativeRoll(1) = Player2.GetInitiative
-        intInitiativeRoll(2) = Player3.GetInitiative
-        intInitiativeRoll(3) = Player4.GetInitiative
-        intInitiativeRoll(4) = Monster1.GetInitiative
-        intInitiativeRoll(5) = Monster2.GetInitiative
-        intInitiativeRoll(6) = Monster3.GetInitiative
-        intInitiativeRoll(7) = Monster4.GetInitiative
+        intInitiativeRoll(0) = Player1.GetInitiative()
+        intInitiativeRoll(1) = Player2.GetInitiative()
+        intInitiativeRoll(2) = Player3.GetInitiative()
+        intInitiativeRoll(3) = Player4.GetInitiative()
+        intInitiativeRoll(4) = Monster1.GetInitiative()
+        intInitiativeRoll(5) = Monster2.GetInitiative()
+        intInitiativeRoll(6) = Monster3.GetInitiative()
+        intInitiativeRoll(7) = Monster4.GetInitiative()
 
         'assigns total initiative to class
         Player1.InitiativeTotal = intInitiativeRoll(0)
@@ -88,6 +88,16 @@
         list.Add(Monster3)
         list.Add(Monster4)
 
+        Dim sorted = From Character In list
+                     Where Character.InitiativeTotal
+                     Order By Character.InitiativeTotal Descending
+        Select Character
+
+
+
+        dgvResults.DataSource = sorted
+
+
         Dim results = From i In list
                       Order By i.InitiativeTotal Ascending
                       Select i
@@ -95,7 +105,7 @@
         Dim sb As New System.Text.StringBuilder()
         Dim ch As Character
 
-        For Each ch In list
+        For Each ch In sorted
             sb.Append(ch.Name.ToString() + " " + ch.InitiativeTotal.ToString() + Environment.NewLine)
 
         Next
