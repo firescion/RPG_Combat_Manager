@@ -71,29 +71,9 @@
             character.GetInitiative()
         Next
 
-        Dim sorted = From Character In list
-                     Where Character.InitiativeTotal
-                     Order By Character.InitiativeTotal Descending
-        Select Character
-
-
-
-        dgvResults.DataSource = sorted
-
-
-        Dim results = From i In list
-                      Order By i.InitiativeTotal Ascending
-                      Select i
-
-        Dim sb As New System.Text.StringBuilder()
-        Dim ch As Character
-
-        For Each ch In sorted
-            sb.Append(ch.Name.ToString() + " " + ch.InitiativeTotal.ToString() + Environment.NewLine)
-
-        Next
-
-        MessageBox.Show(sb.ToString())
+        dgvResults.DataSource = (From l In list
+                            Order By l.InitiativeTotal Descending
+                            Select l).ToList()
 
     End Sub
 End Class
