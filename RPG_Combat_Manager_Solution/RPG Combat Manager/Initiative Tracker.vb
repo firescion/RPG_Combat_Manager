@@ -15,10 +15,33 @@
 
         'Write the player info to the file with a comma separating the name and initiative, new line
 
-        outFile.WriteLine(txtPlayer1.Text & " " & txtPlayer1Initiative.Text & "," & ControlChars.NewLine &
-                          txtPlayer2.Text & " " & txtPlayer2Initiative.Text & "," & ControlChars.NewLine &
-                          txtPlayer3.Text & " " & txtPlayer3Initiative.Text & "," & ControlChars.NewLine &
-                          txtPlayer4.Text & " " & txtPlayer4Initiative.Text)
+
+        Dim Player1 As New Character
+        Dim Player2 As New Character
+        Dim Player3 As New Character
+        Dim Player4 As New Character
+
+        Player1.Name = txtPlayer1.Text
+        Player2.Name = txtPlayer2.Text
+        Player3.Name = txtPlayer3.Text
+        Player4.Name = txtPlayer4.Text
+
+        Integer.TryParse(txtPlayer1Initiative.Text, Player1.InitiativeMod)
+        Integer.TryParse(txtPlayer2Initiative.Text, Player2.InitiativeMod)
+        Integer.TryParse(txtPlayer3Initiative.Text, Player3.InitiativeMod)
+        Integer.TryParse(txtPlayer4Initiative.Text, Player4.InitiativeMod)
+
+        Dim list = New List(Of Character)
+        list.Add(Player1)
+        list.Add(Player2)
+        list.Add(Player3)
+        list.Add(Player4)
+
+        Dim jss As New System.Web.Script.Serialization.JavaScriptSerializer()
+
+        Dim json = jss.Serialize(list)
+
+        outFile.WriteLine(json)
 
         'close the file
         outFile.Close()
